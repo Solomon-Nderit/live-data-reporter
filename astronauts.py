@@ -8,6 +8,8 @@ def people_in_space():
     req_text=req.text
     req_dict = json.loads(req_text)
 
-    for person in req_dict['people']:
-        print(person['name'])
+    with open('astronaut_names.txt', 'w') as f:
+        for person in req_dict['people']:
+            f.write(person['name'] + '\n')
     return
+
